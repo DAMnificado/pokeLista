@@ -1,12 +1,13 @@
 import Pokemon from './pokemon.js';
 
-listaPokemon = [];
+
 
 const url = "https://pokeapi.co/api/v2/pokemon/"
 
 
 document.addEventListener("DOMContentLoaded", () =>{
-
+    listaPokemon = [];
+    
     let lista = document.getElementById("lista");
 
 
