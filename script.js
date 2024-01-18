@@ -6,8 +6,8 @@ const url = "https://pokeapi.co/api/v2/pokemon/"
 
 
 document.addEventListener("DOMContentLoaded", () =>{
-    listaPokemon = [];
-    
+   
+
     let lista = document.getElementById("lista");
 
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     .then((listaJson) => {
 
 
-
+        listaPokemon = [];
    Object.values(listaJson.results).forEach((values, index) => {
 
     pokemon = new Pokemon();
