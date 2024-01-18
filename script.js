@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () =>{
        
         let pokemonPromises= Object.values(listaJson.results).forEach((values, index) => {
 
-    pokemon = new Pokemon();
+    let pokemon = new Pokemon();
 
     pokemon.nombre = values.name;
 
