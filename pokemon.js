@@ -1,4 +1,4 @@
-class Pokemon {
+export default class Pokemon {
 
     constructor(nombre, imagen) {
         this.nombre = nombre;
@@ -7,4 +7,3 @@ class Pokemon {
 
 }
 
-export default Pokemon;
