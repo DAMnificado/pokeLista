@@ -27,6 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((pokemones) => {
             listaPokemon = pokemones;
             console.log(listaPokemon);
+            listaPokemon.forEach((pokemon, index) => {
+
+
+                console.log(pokemon.nombre);
+
+
+
+
+            });
         });
 });
 
