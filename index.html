@@ -5,95 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+
+
 <body>
     
 
 
 
 
-<div>
-
-
-    <p id="nombre">
-
-
-    </p>
-
-
-
-    <img src="" alt="" id="foto">
-
-
-
-
+<div id="lista">   
 </div>
 
 
-<script>
 
-    const url = "https://pokeapi.co/api/v2/pokemon/1";
- 
-    
-
-    document.addEventListener("DOMContentLoaded", ()=>{
-
-        let nombre = document.getElementById("nombre");
-        let foto = document.getElementById("foto");
-
-
-        getData(url)
-        
-        .then(json => { 
-
-            nombre.innerText = json.name;
-            foto.src = json.sprites.front_default;
-
-
-        })
-    
-
-    });
-
-
-
-  
-
-
-
-
-
-
-
-    function getData(url) {
-
-        return fetch(url)
-
-        //resolve
-        .then( (response) => {
-            
-            
-          if(response.status === 404){
-
-            imagenPrueba = "https://img.freepik.com/fotos-premium/ia-generativa-foto-noche-lluviosa_849906-6886.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1704585600&semt=ais"
-
-            nombre.innerText = "La has cagao manin";
-            foto.src = imagenPrueba;
-
-          }
-          
-         else return response.json();
-            
-        
-        
-        });
-
-        //reject
-       
-
-    }
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
