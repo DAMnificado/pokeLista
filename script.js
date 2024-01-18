@@ -4,7 +4,7 @@ import Pokemon from './pokemon.js';
 
 const url = "https://pokeapi.co/api/v2/pokemon/"
 
-
+let listaPokemon = [];
 document.addEventListener("DOMContentLoaded", () =>{
    
 
@@ -15,38 +15,38 @@ document.addEventListener("DOMContentLoaded", () =>{
     .then((listaJson) => {
 
 
-        listaPokemon = [];
-   Object.values(listaJson.results).forEach((values, index) => {
+       
+        let pokemonPromises= Object.values(listaJson.results).forEach((values, index) => {
 
     pokemon = new Pokemon();
 
     pokemon.nombre = values.name;
 
-    fetchDataFromUrl(values.url)
+   return fetchDataFromUrl(values.url)
     .then((datosPokemon) => {
 
 
     pokemon.imagen = datosPokemon.sprites.front_default;
     return pokemon;
        
-    }).then((pokemon) => {
-
-        listaPokemon.push(pokemon);
-
-
-
-
-
     });
-
     
     
 
    });
 
-   console.log(listaPokemon);
+   return Promise.all(pokemonPromises);
+   
 
-    });
+ 
+
+    }).then(pokemones =>{
+
+        listaPokemon = pokemones; 
+    console.log(listaPokemon);
+
+
+    })
 
 
 
