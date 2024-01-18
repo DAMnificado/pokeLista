@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchDataFromUrl(url)
         .then((listaJson) => {
             let pokemonPromises = Object.values(listaJson.results).map((values, index) => {
+
+                //77hjvbjjyvj
                 let pokemon = new Pokemon();
                 pokemon.nombre = values.name;
 
