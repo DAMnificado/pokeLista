@@ -10,20 +10,12 @@
 
 <body>
     
-<h1>INDEX</h1>
-
-
+<h1>LISTA POKEMON</h1>
 
 <div id = "contenedor">
 
 
-   
-
-
 </div>
-
-
-
 
 
 
@@ -72,9 +64,11 @@
                     console.log(pokemon.nombre);
 
                   let nombrePokemon = document.createElement("p");
+                    
                     nombrePokemon.innerText = pokemon.nombre;
                     imagenPokemon = document.createElement("img");
                     imagenPokemon.src = pokemon.imagen;
+
                     contenedor.appendChild(nombrePokemon);
                     contenedor.appendChild(imagenPokemon);
                 });
