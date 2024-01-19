@@ -14,12 +14,83 @@
 
 
 
-<div id="lista">   
+<div id = "contenedor">
+
+
+   
+
+
 </div>
 
 
 
-<script type="module" src="script.js"></script>
+
+
+
+<script>
+
+    class Pokemon {
+
+        constructor(nombre, imagen) {
+            this.nombre = nombre;
+            this.imagen = imagen;
+        }
+    
+    }
+    const url = "https://pokeapi.co/api/v2/pokemon/";
+
+    let listaPokemon = [];
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      
+    
+        fetchDataFromUrl(url)
+
+            .then((listaJson) => {
+                let pokemonPromises = Object.values(listaJson.results).map((values, index) => {
+    
+                    let pokemon = new Pokemon();
+                    pokemon.nombre = values.name;
+    
+                    return fetchDataFromUrl(values.url)
+                        .then((datosPokemon) => {
+                            pokemon.imagen = datosPokemon.sprites.front_default;
+                            return pokemon;
+                        });
+                });
+    
+                return Promise.all(pokemonPromises);
+            })
+            .then((pokemones) => {
+                listaPokemon = pokemones;
+                console.log(listaPokemon);
+
+              
+                let contenedor = document.getElementById("contenedor");
+
+                listaPokemon.forEach((pokemon, index) => {
+                    console.log(pokemon.nombre);
+
+                  let nombrePokemon = document.createElement("p");
+                    nombrePokemon.innerText = pokemon.nombre;
+                    imagenPokemon = document.createElement("img");
+                    imagenPokemon.src = pokemon.imagen;
+                    contenedor.appendChild(nombrePokemon);
+                    contenedor.appendChild(imagenPokemon);
+                });
+                
+
+            
+            });
+        });
+    
+    function fetchDataFromUrl(url) {
+        return fetch(url)
+            .then((response) => response.json());
+    }
+
+
+</script>
 
 </body>
 </html>

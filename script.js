@@ -28,13 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
             listaPokemon = pokemones;
             console.log(listaPokemon);
             listaPokemon.forEach((pokemon, index) => {
-
-
                 console.log(pokemon.nombre);
-
-
-
-
+                lista = pokemon.nombre
             });
         });
 });
